@@ -1,101 +1,166 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-black text-white overflow-hidden">
+      {/* Navbar */}
+      <header
+        className="fixed w-full z-50 transition-all duration-300"
+        style={{
+          backgroundColor:
+            scrollPosition > 50 ? "rgba(0,0,0,0.8)" : "transparent",
+          backdropFilter: scrollPosition > 50 ? "blur(10px)" : "none",
+        }}
+      >
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-neon-green">DAO Platform</h1>
+          <nav className="space-x-6">
+            <Link
+              href="/create-dao"
+              className="text-white hover:text-neon-green transition-colors"
+            >
+              Create DAO
+            </Link>
+            <Link
+              href="/dashboard"
+              className="text-white hover:text-neon-green transition-colors"
+            >
+              Dashboard
+            </Link>
+            <Link
+              href="/about"
+              className="text-white hover:text-neon-green transition-colors"
+            >
+              About
+            </Link>
+          </nav>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section className="h-screen flex items-center justify-center relative">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
+        </div>
+        <div className="relative z-10 text-center">
+          <h1 className="text-6xl font-bold mb-6 animate-fade-in-up text-neon-green neon-text">
+            Build Your DAO
+          </h1>
+          <p className="text-xl text-white mb-8 animate-fade-in-up animation-delay-300">
+            Create, customize, and manage decentralized organizations with ease.
+          </p>
+          <Link
+            href="/create-dao"
+            className="inline-block bg-transparent border-2 border-neon-green text-neon-green font-bold py-3 px-8 rounded-full hover:bg-neon-green hover:text-black transition duration-300 animate-fade-in-up animation-delay-600 neon-box"
+          >
+            Get Started
+          </Link>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-12 text-center text-white">
+            Your DAO at a Glance
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {["Proposals", "Voting Results", "Treasury Management"].map(
+              (feature, index) => (
+                <div
+                  key={feature}
+                  className="bg-gray-900 p-6 rounded-lg relative group overflow-hidden neon-border"
+                >
+                  <h3 className="text-xl font-semibold mb-4 relative z-10 text-neon-green">
+                    {feature}
+                  </h3>
+                  <p className="text-white mb-4 relative z-10">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                  <Link
+                    href={`/${feature.toLowerCase().replace(" ", "-")}`}
+                    className="inline-block text-neon-green hover:text-white relative z-10 transition-colors"
+                  >
+                    Learn More →
+                  </Link>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black text-white py-8 border-t border-gray-800">
+        <div className="container mx-auto px-4 text-center">
+          <p>© 2024 DAO Platform. All Rights Reserved.</p>
+        </div>
       </footer>
+
+      <style jsx global>{`
+        :root {
+          --neon-green: #39ff14;
+        }
+        .text-neon-green {
+          color: var(--neon-green);
+        }
+        .bg-neon-green {
+          background-color: var(--neon-green);
+        }
+        .border-neon-green {
+          border-color: var(--neon-green);
+        }
+        .neon-text {
+          text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green),
+            0 0 30px var(--neon-green);
+        }
+        .neon-box {
+          box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+        }
+        .neon-border {
+          border: 2px solid var(--neon-green);
+          box-shadow: 0 0 10px var(--neon-green),
+            inset 0 0 10px var(--neon-green);
+        }
+        .bg-grid-pattern {
+          background-image: linear-gradient(to right, #333 1px, transparent 1px),
+            linear-gradient(to bottom, #333 1px, transparent 1px);
+          background-size: 20px 20px;
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 1s ease-out forwards;
+        }
+        .animation-delay-300 {
+          animation-delay: 300ms;
+        }
+        .animation-delay-600 {
+          animation-delay: 600ms;
+        }
+      `}</style>
     </div>
   );
 }
