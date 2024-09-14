@@ -27,26 +27,23 @@ export default function Home() {
         }}
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-neon-green">DAO Platform</h1>
+          <h1 className="text-2xl font-bold text-accent">DAO Platform</h1>
           <nav className="space-x-6">
             <Link
               href="/create-dao"
-              className="text-white hover:text-neon-green transition-colors"
+              className="text-white hover:text-accent transition-colors"
             >
               Create DAO
             </Link>
             <Link
               href="/dashboard"
-              className="text-white hover:text-neon-green transition-colors"
+              className="text-white hover:text-accent transition-colors"
             >
               Dashboard
             </Link>
-            <Link
-              href="/about"
-              className="text-white hover:text-neon-green transition-colors"
-            >
-              About
-            </Link>
+            <button className="space-x-2 px-4 py-2 rounded-full bg-transparent border-1 border-accent text-accent font-bold hover:bg-white hover:text-black transition-all duration-300 glow-box">
+              <span>Connect Wallet</span>
+            </button>
           </nav>
         </div>
       </header>
@@ -57,7 +54,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
         </div>
         <div className="relative z-10 text-center">
-          <h1 className="text-6xl font-bold mb-6 animate-fade-in-up text-neon-green neon-text">
+          <h1 className="text-6xl font-bold mb-6 animate-fade-in-up text-accent ">
             Build Your DAO
           </h1>
           <p className="text-xl text-white mb-8 animate-fade-in-up animation-delay-300">
@@ -65,7 +62,7 @@ export default function Home() {
           </p>
           <Link
             href="/create-dao"
-            className="inline-block bg-transparent border-2 border-neon-green text-neon-green font-bold py-3 px-8 rounded-full hover:bg-neon-green hover:text-black transition duration-300 animate-fade-in-up animation-delay-600 neon-box"
+            className="inline-block bg-transparent border-1 border-accent text-accent font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black transition duration-300 animate-fade-in-up animation-delay-600 glow-box"
           >
             Get Started
           </Link>
@@ -83,9 +80,9 @@ export default function Home() {
               (feature, index) => (
                 <div
                   key={feature}
-                  className="bg-gray-900 p-6 rounded-lg relative group overflow-hidden neon-border"
+                  className="bg-gray-900 p-6 rounded-lg relative group overflow-hidden accent-border"
                 >
-                  <h3 className="text-xl font-semibold mb-4 relative z-10 text-neon-green">
+                  <h3 className="text-xl font-semibold mb-4 relative z-10 text-accent">
                     {feature}
                   </h3>
                   <p className="text-white mb-4 relative z-10">
@@ -93,7 +90,7 @@ export default function Home() {
                   </p>
                   <Link
                     href={`/${feature.toLowerCase().replace(" ", "-")}`}
-                    className="inline-block text-neon-green hover:text-white relative z-10 transition-colors"
+                    className="inline-block text-accent hover:text-white relative z-10 transition-colors"
                   >
                     Learn More →
                   </Link>
@@ -113,28 +110,28 @@ export default function Home() {
 
       <style jsx global>{`
         :root {
-          --neon-green: #39ff14;
+          --accent-color: #ebff54;
         }
-        .text-neon-green {
-          color: var(--neon-green);
+        .text-accent {
+          color: var(--accent-color);
         }
-        .bg-neon-green {
-          background-color: var(--neon-green);
+        .bg-accent {
+          background-color: var(--accent-color);
         }
-        .border-neon-green {
-          border-color: var(--neon-green);
+        .border-accent {
+          border-color: var(--accent-color);
         }
-        .neon-text {
-          text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green),
-            0 0 30px var(--neon-green);
+        .glow-text {
+          text-shadow: 0 0 10px var(--accent-color),
+            0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
         }
-        .neon-box {
-          box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+        .glow-box {
+          box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
         }
-        .neon-border {
-          border: 2px solid var(--neon-green);
-          box-shadow: 0 0 10px var(--neon-green),
-            inset 0 0 10px var(--neon-green);
+        .accent-border {
+          border: 2px solid var(--accent-color);
+          box-shadow: 0 0 10px var(--accent-color),
+            inset 0 0 10px var(--accent-color);
         }
         .bg-grid-pattern {
           background-image: linear-gradient(to right, #333 1px, transparent 1px),
