@@ -2,7 +2,57 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-
+import { SparklesCore } from "../components/ui/sparkles";
+import { StickyScroll } from "../components/ui/sticky-scroll-reveal";
+import Image from "next/image";
+const content = [
+  {
+    title: "Collaborative Editing",
+    description:
+      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+    content: (
+      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+        Collaborative Editing
+      </div>
+    ),
+  },
+  {
+    title: "Real time changes",
+    description:
+      "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+    content: (
+      <div className="h-full w-full  flex items-center justify-center text-white">
+        <Image
+          src="/linear.webp"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
+      </div>
+    ),
+  },
+  {
+    title: "Version control",
+    description:
+      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+    content: (
+      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
+        Version control
+      </div>
+    ),
+  },
+  {
+    title: "Running out of content",
+    description:
+      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+    content: (
+      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+        Running out of content
+      </div>
+    ),
+  },
+];
 export default function Home() {
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -27,7 +77,7 @@ export default function Home() {
         }}
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-accent">DAO Platform</h1>
+          <h1 className="text-2xl font-bold text-accent"></h1>
           <nav className="space-x-6">
             <Link
               href="/create-dao"
@@ -41,7 +91,7 @@ export default function Home() {
             >
               Dashboard
             </Link>
-            <button className="space-x-2 px-4 py-2 rounded-full bg-transparent border-1 border-accent text-accent font-bold hover:bg-white hover:text-black transition-all duration-300 glow-box">
+            <button className="space-x-2 px-6 py-3 rounded-full bg-transparent border-2 border-yellow-400 text-yellow-400 font-bold hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-lg">
               <span>Connect Wallet</span>
             </button>
           </nav>
@@ -49,48 +99,73 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="h-screen flex items-center justify-center relative">
+      <section className="h-screen flex flex-col items-center justify-center relative">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
         </div>
         <div className="relative z-10 text-center">
-          <h1 className="text-6xl font-bold mb-6 animate-fade-in-up text-accent ">
-            Build Your DAO
-          </h1>
-          <p className="text-xl text-white mb-8 animate-fade-in-up animation-delay-300">
-            Create, customize, and manage decentralized organizations with ease.
-          </p>
-          <Link
-            href="/create-dao"
-            className="inline-block bg-transparent border-1 border-accent text-accent font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black transition duration-300 animate-fade-in-up animation-delay-600 glow-box"
-          >
-            Get Started
-          </Link>
+          <div className="h-4/6 w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+            <h1 className="md:text-7xl text-4xl lg:text-9xl font-bold text-center text-white relative z-20">
+              archiDAO
+            </h1>
+            <div className="w-3/4 h-28 relative mt-4">
+              {/* Gradients */}
+              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4" />
+              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4" />
+              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+
+              {/* Core component */}
+              <SparklesCore
+                background="transparent"
+                minSize={0.4}
+                maxSize={1}
+                particleDensity={1200}
+                className="w-full h-full"
+                particleColor="#FFFFFF"
+              />
+
+              {/* Radial Gradient to prevent sharp edges */}
+              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+            </div>
+          </div>
+
+          {/* New Div with Headline and Subheadline */}
+          <div className="mt-12 text-center">
+            <h2 className="md:text-4xl text-2xl font-bold text-gray-300">
+              Effortlessly Build and Manage Your{" "}
+              <span className="text-yellow-400">DAO</span> <br />
+            </h2>
+            {/* Updated Button */}
+            <button className="mt-6 bg-yellow-400 text-black font-bold py-3 px-8 rounded-full hover:bg-yellow-500 transition duration-300">
+              Create DAO
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden bg-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center text-white">
+          <h2 className="text-4xl font-bold mb-12 text-center text-yellow-400">
             Your DAO at a Glance
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {["Proposals", "Voting Results", "Treasury Management"].map(
-              (feature, index) => (
+              (feature) => (
                 <div
                   key={feature}
-                  className="bg-gray-900 p-6 rounded-lg relative group overflow-hidden accent-border"
+                  className="bg-gray-800 p-6 rounded-lg relative group overflow-hidden hover:bg-gray-700 transition-all duration-300"
                 >
-                  <h3 className="text-xl font-semibold mb-4 relative z-10 text-accent">
+                  <h3 className="text-xl font-semibold mb-4 relative z-10 text-yellow-400">
                     {feature}
                   </h3>
-                  <p className="text-white mb-4 relative z-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  <p className="text-gray-300 mb-4 relative z-10">
+                    Get insights and manage your DAO with a glance.
                   </p>
                   <Link
                     href={`/${feature.toLowerCase().replace(" ", "-")}`}
-                    className="inline-block text-accent hover:text-white relative z-10 transition-colors"
+                    className="inline-block text-yellow-400 hover:text-white relative z-10 transition-colors"
                   >
                     Learn More →
                   </Link>
@@ -100,6 +175,51 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="h-screen bg-yellow-400 text-black flex items-center justify-center">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-8">
+            Tutorials to Get You Started
+          </h2>
+          <p className="text-lg mb-12">
+            Learn how to build and manage your DAO with step-by-step guides.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Create a DAO",
+                description: "Start building your DAO from scratch.",
+              },
+              {
+                title: "Voting Process",
+                description: "Learn how to manage proposals and votes.",
+              },
+              {
+                title: "Treasury Management",
+                description: "Understand how to manage your DAO’s finances.",
+              },
+            ].map((tutorial, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-lg hover:bg-gray-200 transition-all duration-300"
+              >
+                <h3 className="text-xl font-semibold mb-4">{tutorial.title}</h3>
+                <p className="mb-4">{tutorial.description}</p>
+                <Link
+                  href={`/tutorials/${tutorial.title
+                    .toLowerCase()
+                    .replace(" ", "-")}`}
+                  className="text-black hover:text-gray-700 transition-colors"
+                >
+                  Start Tutorial →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <StickyScroll content={content} />
 
       {/* Footer */}
       <footer className="bg-black text-white py-8 border-t border-gray-800">
