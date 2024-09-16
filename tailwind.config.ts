@@ -14,6 +14,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        neon: "#EBFF54", // Customize your neon color here
+        "neon-dark": "#EBFF54", // Darker version for hover effects
       },
     },
   },
