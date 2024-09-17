@@ -1,7 +1,7 @@
 // dashboard/components/Header.tsx
 import React from "react";
-import { TypewriterEffectSmooth } from "@/app/dashboard/components/ui/typewriter-effect";
-import { TypewriterEffect2Smooth } from "@/app/dashboard/components/ui/typewriter-effect2";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { TypewriterEffect2Smooth } from "@/components/ui/typewriter-effect2";
 
 const words1 = [
   {
