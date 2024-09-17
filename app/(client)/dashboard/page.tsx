@@ -40,7 +40,7 @@ const DashboardPage: React.FC = () => {
       )}
       <div className="p-6 text-center mt-[8rem]">
         <button className="bg-neon text-black px-6 py-3 rounded-lg font-bold hover:bg-neon-dark">
-          Create Your Own DAO From Scratch
+          Create Your Own Contract From Scratch
         </button>
       </div>
     </div>

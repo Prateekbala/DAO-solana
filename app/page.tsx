@@ -84,10 +84,10 @@ export default function Home() {
           <h1 className="text-2xl font-bold text-accent"></h1>
           <nav className="space-x-6">
             <Link
-              href="/create-dao"
+              href="/create-Contract"
               className="text-white hover:text-accent transition-colors"
             >
-              Create DAO
+              Create Contract
             </Link>
 
             <Link
@@ -111,7 +111,7 @@ export default function Home() {
         <div className="relative z-10 text-center">
           <div className="h-4/6 w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
             <h1 className="md:text-7xl text-4xl lg:text-9xl font-bold text-center text-white relative z-20">
-              archiDAO
+              archiContract
             </h1>
             <div className="w-3/4 h-28 relative mt-4">
               {/* Gradients */}
@@ -139,7 +139,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <h2 className="md:text-4xl text-2xl font-bold text-gray-300">
               Effortlessly Build and Manage Your{" "}
-              <span className="text-yellow-400">DAO</span> <br />
+              <span className="text-yellow-400">Contract</span> <br />
             </h2>
             {/* Updated Button */}
             <button
@@ -156,7 +156,7 @@ export default function Home() {
       <section className="py-20 relative overflow-hidden bg-black">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-yellow-400">
-            Your DAO at a Glance
+            Your Contract at a Glance
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {["Proposals", "Voting Results", "Treasury Management"].map(
@@ -169,7 +169,7 @@ export default function Home() {
                     {feature}
                   </h3>
                   <p className="text-gray-300 mb-4 relative z-10">
-                    Get insights and manage your DAO with a glance.
+                    Get insights and manage your Contract with a glance.
                   </p>
                   <Link
                     href={`/${feature.toLowerCase().replace(" ", "-")}`}
@@ -190,14 +190,15 @@ export default function Home() {
             Tutorials to Get You Started
           </h2>
           <p className="text-lg mb-12">
-            Learn how to build and manage your DAO with step-by-step guides.
+            Learn how to build and manage your Contract with step-by-step
+            guides.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Create a DAO",
-                description: "Start building your DAO from scratch.",
+                title: "Create a Contract",
+                description: "Start building your Contract from scratch.",
               },
               {
                 title: "Voting Process",
@@ -205,7 +206,8 @@ export default function Home() {
               },
               {
                 title: "Treasury Management",
-                description: "Understand how to manage your DAO’s finances.",
+                description:
+                  "Understand how to manage your Contract’s finances.",
               },
             ].map((tutorial, index) => (
               <div
@@ -232,7 +234,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-black text-white py-8 border-t border-gray-800">
         <div className="container mx-auto px-4 text-center">
-          <p>© 2024 DAO Platform. All Rights Reserved.</p>
+          <p>© 2024 Contract Platform. All Rights Reserved.</p>
         </div>
       </footer>
 
