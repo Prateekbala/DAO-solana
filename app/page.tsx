@@ -5,6 +5,7 @@ import Link from "next/link";
 import { SparklesCore } from "../components/ui/sparkles";
 import { StickyScroll } from "../components/ui/sticky-scroll-reveal";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 const content = [
   {
     title: "Collaborative Editing",
@@ -55,7 +56,7 @@ const content = [
 ];
 export default function Home() {
   const [scrollPosition, setScrollPosition] = useState(0);
-
+  const router = useRouter();
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -64,6 +65,9 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const handleCreateContractClick = () => {
+    router.push("/dashboard");
+  };
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
@@ -85,6 +89,7 @@ export default function Home() {
             >
               Create DAO
             </Link>
+
             <Link
               href="/dashboard"
               className="text-white hover:text-accent transition-colors"
@@ -137,8 +142,11 @@ export default function Home() {
               <span className="text-yellow-400">DAO</span> <br />
             </h2>
             {/* Updated Button */}
-            <button className="mt-6 bg-yellow-400 text-black font-bold py-3 px-8 rounded-full hover:bg-yellow-500 transition duration-300">
-              Create DAO
+            <button
+              onClick={handleCreateContractClick}
+              className="mt-6 bg-yellow-400 text-black font-bold py-3 px-8 rounded-full hover:bg-yellow-500 transition duration-300"
+            >
+              Create Contract
             </button>
           </div>
         </div>

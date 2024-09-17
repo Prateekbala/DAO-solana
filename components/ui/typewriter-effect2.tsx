@@ -13,7 +13,6 @@ export const TypewriterEffect2Smooth = ({
   }[];
   className?: string;
 }) => {
-  // Split text inside of words into array of characters
   const wordsArray = words.map((word) => {
     return {
       ...word,
