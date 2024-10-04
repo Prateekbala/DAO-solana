@@ -1,7 +1,7 @@
 // dashboard/components/TemplateList.tsx
 import React from "react";
 import { Template } from "../types/Template";
-import TemplateCard from "./TemplateCard";
+import TemplateCard from "../app/(client)/dashboard/TemplateCard";
 
 interface TemplateListProps {
   templates: Template[];

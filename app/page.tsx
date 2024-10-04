@@ -8,7 +8,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import WalletContextProvider from "../components/WalletContextProvider";
 
-import { BalanceDisplay } from "../components/BalanceDisplay";
 import { AppBar } from "../components/AppBar";
 const content = [
   {
@@ -75,7 +74,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
-      {/* Navbar */}
       <header
         className="fixed w-full z-50 transition-all duration-300"
         style={{
@@ -86,7 +84,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-accent"></h1>
-          <nav className="space-x-6">
+          <nav className="flex items-center space-x-6">
             <Link
               href="/create-Contract"
               className="text-white hover:text-accent transition-colors"
@@ -100,18 +98,15 @@ export default function Home() {
             >
               Dashboard
             </Link>
-            <button className="space-x-2 px-6 py-3 rounded-full bg-transparent border-2 border-yellow-400 text-yellow-400 font-bold hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-lg">
-              <span>Connect Wallet</span>
-            </button>
+
+            {/* Custom-styled Connect Wallet Button */}
             <WalletContextProvider>
               <AppBar />
-              
             </WalletContextProvider>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="h-screen flex flex-col items-center justify-center relative">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
@@ -122,13 +117,11 @@ export default function Home() {
               archiContract
             </h1>
             <div className="w-3/4 h-28 relative mt-4">
-              {/* Gradients */}
               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4" />
               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4" />
               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
 
-              {/* Core component */}
               <SparklesCore
                 background="transparent"
                 minSize={0.4}
@@ -138,18 +131,16 @@ export default function Home() {
                 particleColor="#FFFFFF"
               />
 
-              {/* Radial Gradient to prevent sharp edges */}
               <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
             </div>
           </div>
 
-          {/* New Div with Headline and Subheadline */}
           <div className="mt-12 text-center">
             <h2 className="md:text-4xl text-2xl font-bold text-gray-300">
               Effortlessly Build and Manage Your{" "}
               <span className="text-yellow-400">Contract</span> <br />
             </h2>
-            {/* Updated Button */}
+
             <button
               onClick={handleCreateContractClick}
               className="mt-6 bg-yellow-400 text-black font-bold py-3 px-8 rounded-full hover:bg-yellow-500 transition duration-300"
@@ -160,7 +151,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 relative overflow-hidden bg-black">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-yellow-400">
