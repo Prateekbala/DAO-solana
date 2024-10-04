@@ -12,10 +12,7 @@ const words1 = [
   },
   {
     className: "text-neon dark:text-neon",
-    text: "DAO",
-  },
-  {
-    text: "Template",
+    text: "Contract",
   },
 ];
 
@@ -32,7 +29,6 @@ const words2 = [
   { text: "investment" },
   { text: "fund." },
 ];
-
 
 const Header: React.FC = () => (
   <header className="bg-[#0C0C0C] text-white p-6 md:p-8 lg:p-12 flex flex-col items-center justify-center">

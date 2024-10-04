@@ -1,4 +1,3 @@
-// dashboard/index.tsx
 "use client";
 import React, { useState } from "react";
 import Header from "../../../components/Header";
@@ -8,12 +7,12 @@ import { Template } from "../../../types/Template";
 
 const templatesData: Template[] = [
   {
-    name: "Community DAO",
+    name: "Gaming Contract",
     description: "Best for managing community events and member voting.",
     imageUrl: "https://id.pinterest.com/pin/42432421479775953/",
   },
   {
-    name: "Investment DAO",
+    name: "Investment Contract",
     description: "Perfect for managing collective investments and portfolios.",
     imageUrl: "/images/investment-dao.png",
   },

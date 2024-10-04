@@ -6,6 +6,10 @@ import { SparklesCore } from "../components/ui/sparkles";
 import { StickyScroll } from "../components/ui/sticky-scroll-reveal";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import WalletContextProvider from "../components/WalletContextProvider";
+
+import { BalanceDisplay } from "../components/BalanceDisplay";
+import { AppBar } from "../components/AppBar";
 const content = [
   {
     title: "Collaborative Editing",
@@ -99,6 +103,10 @@ export default function Home() {
             <button className="space-x-2 px-6 py-3 rounded-full bg-transparent border-2 border-yellow-400 text-yellow-400 font-bold hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-lg">
               <span>Connect Wallet</span>
             </button>
+            <WalletContextProvider>
+              <AppBar />
+              
+            </WalletContextProvider>
           </nav>
         </div>
       </header>
