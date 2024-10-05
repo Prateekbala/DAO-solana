@@ -7,7 +7,7 @@ import { StickyScroll } from "../components/ui/sticky-scroll-reveal";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import WalletContextProvider from "../components/WalletContextProvider";
-
+import Navbar from "../components/Navbar";
 import { AppBar } from "../components/AppBar";
 const content = [
   {
@@ -74,39 +74,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
-      <header
-        className="fixed w-full z-50 transition-all duration-300"
-        style={{
-          backgroundColor:
-            scrollPosition > 50 ? "rgba(0,0,0,0.8)" : "transparent",
-          backdropFilter: scrollPosition > 50 ? "blur(10px)" : "none",
-        }}
-      >
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-accent"></h1>
-          <nav className="flex items-center space-x-6">
-            <Link
-              href="/create-Contract"
-              className="text-white hover:text-accent transition-colors"
-            >
-              Create Contract
-            </Link>
-
-            <Link
-              href="/dashboard"
-              className="text-white hover:text-accent transition-colors"
-            >
-              Dashboard
-            </Link>
-
-            {/* Custom-styled Connect Wallet Button */}
-            <WalletContextProvider>
-              <AppBar />
-            </WalletContextProvider>
-          </nav>
-        </div>
-      </header>
-
       <section className="h-screen flex flex-col items-center justify-center relative">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
