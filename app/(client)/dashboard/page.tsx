@@ -4,7 +4,7 @@ import Header from "../../../components/Header";
 import TemplateList from "../../../components/TemplateList";
 import TemplateDetail from "../../../components/TemplateDetail";
 import { Template } from "../../../types/Template";
-
+//import Spline from "@splinetool/react-spline/next";
 const templatesData: Template[] = [
   {
     name: "Gaming Contract",
@@ -29,6 +29,7 @@ const DashboardPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#0C0C0C] text-white">
+      {/* <Spline scene="https://prod.spline.design/6KjtWRtNsiKVUIG7/scene.splinecode" /> */}
       <Header />
       <TemplateList templates={templatesData} />
       {selectedTemplate && (
