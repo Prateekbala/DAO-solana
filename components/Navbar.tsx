@@ -29,17 +29,16 @@ const Navbar: React.FC = () => {
         <h1 className="text-2xl font-bold text-accent"></h1>
         <nav className="flex items-center space-x-6">
           <Link
-            href="/create-contract"
+            href="/"
             className="text-white hover:text-accent transition-colors"
           >
-            Create Contract
+            Home
           </Link>
-
           <Link
             href="/dashboard"
             className="text-white hover:text-accent transition-colors"
           >
-            Dashboard
+            See Contracts
           </Link>
 
           {/* Custom-styled Connect Wallet Button */}
