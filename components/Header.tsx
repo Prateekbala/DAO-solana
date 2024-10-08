@@ -5,9 +5,11 @@ import { TypewriterEffect2Smooth } from "@/components/ui/typewriter-effect2";
 
 const words1 = [
   {
+    className: "text-neon dark:text-neon",
     text: "Choose",
   },
   {
+    className: "text-neon dark:text-neon",
     text: "a",
   },
   {
@@ -17,17 +19,17 @@ const words1 = [
 ];
 
 const words2 = [
-  { text: "Choose" },
-  { text: "a" },
-  { text: "template" },
-  { text: "for" },
-  { text: "managing" },
-  { text: "your" },
-  { text: "community," },
-  { text: "business," },
-  { text: "or" },
-  { text: "investment" },
-  { text: "fund." },
+  { text: "Choose", className: "text-neon dark:text-neon" },
+  { text: "a", className: "text-neon dark:text-neon" },
+  { text: "template", className: "text-neon dark:text-neon" },
+  { text: "for", className: "text-neon dark:text-neon" },
+  { text: "managing", className: "text-neon dark:text-neon" },
+  { text: "your", className: "text-neon dark:text-neon" },
+  { text: "community,", className: "text-neon dark:text-neon" },
+  { text: "business,", className: "text-neon dark:text-neon" },
+  { text: "or", className: "text-neon dark:text-neon" },
+  { text: "investment", className: "text-neon dark:text-neon" },
+  { text: "fund.", className: "text-neon dark:text-neon" },
 ];
 
 const Header: React.FC = () => (

@@ -23,22 +23,16 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template }) => {
       transition={{ duration: 0.8 }}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <span className="text-gray-400 text-lg mb-4">01</span>
+      {/* <span className="text-gray-400 text-lg mb-4"></span> */}
 
       <h5 className="text-5xl font-bold text-white mb-[7%]">{template.name}</h5>
 
       <p className="text-[#93938E] text-lg mb-6">{template.description}</p>
 
-      <p className="text-[#93938E] text-lg mb-8">
-        In the very long term, we envision specialty hardware being used to
-        process signatures as quickly as possible or even small runners acting
-        as single nodes, with different machines for different purposes such as
-        network frontend, signature verification, EVM state validation, and
-        block production/synchronization.
-      </p>
+      <p className="text-[#93938E] text-lg mb-8"></p>
 
       <button
-        className="w-[30%] bg-transparent border border-white text-white px-6 py-2 rounded-lg font-bold hover:bg-neon hover:w-[35%] hover:text-black transition-all"
+        className="w-fit bg-transparent border border-white text-white px-6 py-2 rounded-lg font-bold hover:bg-neon  hover:text-[#fbbf24] hover:border-[#fbbf24]  transition-all"
         onClick={handleViewContractClick}
       >
         View Contract

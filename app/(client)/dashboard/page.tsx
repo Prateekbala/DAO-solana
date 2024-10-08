@@ -7,8 +7,9 @@ import { Template } from "../../../types/Template";
 //import Spline from "@splinetool/react-spline/next";
 const templatesData: Template[] = [
   {
-    name: "Gaming Contract",
-    description: "Best for managing community events and member voting.",
+    name: "Managing Account Data",
+    description:
+      "This contract serves as a foundational template for developers looking to manage data stored on the Solana blockchain effectively. It provides essential functionalities to initialize, update, and read data from a custom account.",
     imageUrl: "https://id.pinterest.com/pin/42432421479775953/",
   },
   {

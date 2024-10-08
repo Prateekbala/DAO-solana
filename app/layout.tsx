@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar"; // Import the Navbar component
+import WalletContextProvider from "@/components/WalletContextProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,10 +30,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Navbar will be displayed on all pages */}
-        <Navbar />
-        {/* The children prop will render the content of the current page */}
-        {children}
+        <WalletContextProvider>
+          <Navbar />
+          <main>{children}</main>
+        </WalletContextProvider>
       </body>
     </html>
   );
