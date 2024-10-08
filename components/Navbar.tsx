@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
             See Contracts
           </Link>
 
-          {/* Custom-styled Connect Wallet Button */}
+          
           <WalletContextProvider>
             <AppBar />
           </WalletContextProvider>

@@ -6,6 +6,7 @@ import "prismjs/components/prism-javascript";
 
 const CodeTemplatePage: React.FC = () => {
   const [codeSnippet, setCodeSnippet] = useState("");
+  const [originalCode, setOriginalCode] = useState(""); // Store original code
   const [isCopied, setIsCopied] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -20,6 +21,7 @@ const CodeTemplatePage: React.FC = () => {
 
         const data = await response.json();
         setCodeSnippet(data.code);
+        setOriginalCode(data.code); // Set original code after fetch
         Prism.highlightAll();
       } catch (error) {
         console.error("Error fetching code snippet:", error);
@@ -43,15 +45,23 @@ const CodeTemplatePage: React.FC = () => {
   };
 
   const toggleEditing = () => {
+    if (!isEditing) {
+      // Start editing, make a backup of the code
+      setOriginalCode(codeSnippet); // Store current code before edit
+    }
     setIsEditing(!isEditing);
+  };
+
+  const cancelEdit = () => {
+    setCodeSnippet(originalCode); // Revert to original code
+    setIsEditing(false); // Stop editing
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-300">
-      <div className="bg-white shadow-lg rounded-lg p-6 max-w-4xl w-full">
+      <div className="bg-white shadow-lg rounded-lg p-4 max-w-3xl w-full">
         <h1 className="text-2xl font-bold mb-4">Code Template</h1>
 
-        {/* Toggle between editable and non-editable modes */}
         {isEditing ? (
           <textarea
             value={codeSnippet}
@@ -60,26 +70,35 @@ const CodeTemplatePage: React.FC = () => {
             spellCheck="false"
           />
         ) : (
-          <pre className="bg-gray-900 text-white rounded-md p-4 h-64overflow-auto">
+          <pre className="bg-gray-900 text-white rounded-md p-4 h-85 overflow-auto">
             <code className="language-javascript">{codeSnippet}</code>
           </pre>
         )}
 
-        {/* Toggle Edit Mode Button */}
-        <button
-          onClick={toggleEditing}
-          className="mt-4 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition"
-        >
-          {isEditing ? "Stop Editing" : "Edit Code"}
-        </button>
+        <div className="mt-4">
+          <button
+            onClick={toggleEditing}
+            className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition"
+          >
+            {isEditing ? "Save" : "Edit Code"}
+          </button>
 
-        {/* Copy button */}
-        <button
-          onClick={handleCopy}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition ml-4"
-        >
-          {isCopied ? "Copied!" : "Copy Code"}
-        </button>
+          {isEditing && (
+            <button
+              onClick={cancelEdit}
+              className="ml-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+            >
+              Cancel
+            </button>
+          )}
+
+          <button
+            onClick={handleCopy}
+            className="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+          >
+            {isCopied ? "Copied!" : "Copy Code"}
+          </button>
+        </div>
       </div>
     </div>
   );
