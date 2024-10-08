@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import WalletContextProvider from "./WalletContextProvider";
+import WalletContextProvider from "../app/providers/WalletContextProvider";
 import { AppBar } from "./AppBar";
 
 const Navbar: React.FC = () => {

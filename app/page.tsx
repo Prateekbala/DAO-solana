@@ -6,7 +6,7 @@ import { SparklesCore } from "../components/ui/sparkles";
 import { StickyScroll } from "../components/ui/sticky-scroll-reveal";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import WalletContextProvider from "../components/WalletContextProvider";
+import WalletContextProvider from "./providers/WalletContextProvider";
 import Navbar from "../components/Navbar";
 import { AppBar } from "../components/AppBar";
 const content = [

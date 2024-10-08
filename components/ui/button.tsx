@@ -4,6 +4,7 @@ interface ButtonProps {
   onClick: () => void;
   disabled?: boolean;
   className?: string;
+  children: React.ReactNode; // Add the children prop to the interface
 }
 
 export const Button: React.FC<ButtonProps> = ({

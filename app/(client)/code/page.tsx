@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Prism from "prismjs";
 import "prismjs/themes/prism-okaidia.css";
 import "prismjs/components/prism-javascript";
-import WalletContextProvider from "@/components/WalletContextProvider";
+import WalletContextProvider from "@/app/providers/WalletContextProvider";
 import { AppBar } from "@/components/AppBar";
 import { DeployButton } from "@/components/DeployButton";
 
