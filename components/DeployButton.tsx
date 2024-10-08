@@ -27,20 +27,17 @@ export const DeployButton: FC = () => {
       setIsDeploying(true);
       setError(null);
 
-      // Create a new keypair for the contract (program) deployment
       const programKeypair = Keypair.generate();
 
-      // Create a new transaction
       const transaction = new Transaction();
 
-      // Add deployment instructions here (e.g., SystemProgram.createAccount)
       transaction.add(
         SystemProgram.createAccount({
           fromPubkey: publicKey,
           newAccountPubkey: programKeypair.publicKey,
-          lamports: await connection.getMinimumBalanceForRentExemption(0), // Adjust the size based on your program
+          lamports: await connection.getMinimumBalanceForRentExemption(0),
           space: 0, // Size of the program data
-          programId: programKeypair.publicKey, // Replace with the actual program ID if needed
+          programId: programKeypair.publicKey,
         })
       );
 

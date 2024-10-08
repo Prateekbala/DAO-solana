@@ -4,7 +4,7 @@ import Header from "../../../components/Header";
 import TemplateList from "../../../components/TemplateList";
 import TemplateDetail from "../../../components/TemplateDetail";
 import { Template } from "../../../types/Template";
-//import Spline from "@splinetool/react-spline/next";
+
 const templatesData: Template[] = [
   {
     name: "Managing Account Data",
@@ -23,10 +23,6 @@ const DashboardPage: React.FC = () => {
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(
     null
   );
-
-  const handleTemplateClick = (template: Template) => {
-    setSelectedTemplate(template);
-  };
 
   return (
     <div className="min-h-screen bg-[#0C0C0C] text-white">
