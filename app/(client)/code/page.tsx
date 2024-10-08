@@ -3,9 +3,8 @@ import React, { useState, useEffect } from "react";
 import Prism from "prismjs";
 import "prismjs/themes/prism-okaidia.css";
 import "prismjs/components/prism-javascript";
-import WalletContextProvider from "@/app/providers/WalletContextProvider";
-import { AppBar } from "@/components/AppBar";
 import { DeployButton } from "@/components/DeployButton";
+import { AppBar } from "@/components/AppBar";
 
 const CodeTemplatePage: React.FC = () => {
   const [codeSnippet, setCodeSnippet] = useState("");
@@ -16,11 +15,9 @@ const CodeTemplatePage: React.FC = () => {
     const fetchCode = async () => {
       try {
         const response = await fetch(`/api/gamble`);
-
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-
         const data = await response.json();
         setCodeSnippet(data.code);
         Prism.highlightAll();
@@ -28,13 +25,12 @@ const CodeTemplatePage: React.FC = () => {
         console.error("Error fetching code snippet:", error);
       }
     };
-
     fetchCode();
   }, []);
 
   useEffect(() => {
     if (!isEditing) {
-      Prism.highlightAll(); // Re-highlight when editing stops
+      Prism.highlightAll();
     }
   }, [isEditing]);
 
@@ -53,8 +49,6 @@ const CodeTemplatePage: React.FC = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-300">
       <div className="bg-white shadow-lg rounded-lg p-6 max-w-4xl w-full">
         <h1 className="text-2xl font-bold mb-4">Code Template</h1>
-
-        {/* Toggle between editable and non-editable modes */}
         {isEditing ? (
           <textarea
             value={codeSnippet}
@@ -67,16 +61,12 @@ const CodeTemplatePage: React.FC = () => {
             <code className="language-javascript">{codeSnippet}</code>
           </pre>
         )}
-
-        {/* Toggle Edit Mode Button */}
         <button
           onClick={toggleEditing}
           className="mt-4 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition"
         >
           {isEditing ? "Stop Editing" : "Edit Code"}
         </button>
-
-        {/* Copy button */}
         <button
           onClick={handleCopy}
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition ml-4"
@@ -84,9 +74,7 @@ const CodeTemplatePage: React.FC = () => {
           {isCopied ? "Copied!" : "Copy Code"}
         </button>
       </div>
-      <WalletContextProvider>
-        <DeployButton />
-      </WalletContextProvider>
+      <DeployButton />
     </div>
   );
 };
